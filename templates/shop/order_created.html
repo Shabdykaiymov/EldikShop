@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказ оформлен | EldikShop{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">Заказ успешно оформлен!</h4>
+            </div>
+            <div class="card-body">
+                <h5>Спасибо за ваш заказ!</h5>
+                <p>Ваш заказ №{{ order.id }} успешно оформлен. Мы отправим вам электронное письмо с подтверждением заказа.</p>
+
+                <hr>
+
+                <h5>Информация о заказе:</h5>
+                <p><strong>Номер заказа:</strong> {{ order.id }}</p>
+                <p><strong>Дата заказа:</strong> {{ order.created|date:"d.m.Y H:i" }}</p>
+                <p><strong>Имя:</strong> {{ order.full_name }}</p>
+                <p><strong>Email:</strong> {{ order.email }}</p>
+                <p><strong>Адрес доставки:</strong> {{ order.address }}, {{ order.city }}, {{ order.postal_code }}</p>
+
+                <hr>
+
+                <h5>Заказанные товары:</h5>
+                <ul class="list-group mb-3">
+                    {% for item in order.items.all %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ item.product.name }} × {{ item.quantity }}
+                        <span>{{ item.price }} ₽</span>
+                    </li>
+                    {% endfor %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Итого:</strong>
+                        <strong>{{ order.get_total_cost }} ₽</strong>
+                    </li>
+                </ul>
+
+                <div class="text-center mt-4">
+                    <a href="{% url 'shop:product_list' %}" class="btn btn-primary">Вернуться в магазин</a>
+                    <a href="{% url 'shop:order_list' %}" class="btn btn-outline-primary">Мои заказы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

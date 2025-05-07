@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказ №{{ order.id }} | EldikShop{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Заказ №{{ order.id }}</h2>
+    <a href="{% url 'shop:order_list' %}" class="btn btn-outline-primary">Назад к заказам</a>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Информация о заказе</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Дата заказа:</strong> {{ order.created|date:"d.m.Y H:i" }}</p>
+                <p><strong>Статус:</strong>
+                    {% if order.status == 'new' %}
+                    <span class="badge bg-warning">Новый</span>
+                    {% elif order.status == 'completed' %}
+                    <span class="badge bg-success">Завершен</span>
+                    {% endif %}
+                </p>
+                <p><strong>Общая сумма:</strong> {{ order.get_total_cost }} ₽</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Адрес доставки</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Получатель:</strong> {{ order.full_name }}</p>
+                <p><strong>Email:</strong> {{ order.email }}</p>
+                <p><strong>Адрес:</strong> {{ order.address }}</p>
+                <p><strong>Город:</strong> {{ order.city }}</p>
+                <p><strong>Почтовый индекс:</strong> {{ order.postal_code }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">Товары в заказе</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Товар</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                        <th>Сумма</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in order.items.all %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.price }} ₽</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.get_cost }} ₽</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>Итого:</strong></td>
+                        <td><strong>{{ order.get_total_cost }} ₽</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

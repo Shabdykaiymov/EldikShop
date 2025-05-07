@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Профиль пользователя: {{ user.username }}</h1>
+
+<h2>Ваши последние заказы:</h2>
+<ul>
+    {% for order in orders %}
+    <li>
+        <a href="{% url 'shop:order_detail' order.id %}">
+            Заказ №{{ order.id }} - {{ order.created|date:"d.m.Y H:i" }}
+        </a>
+    </li>
+    {% empty %}
+    <li>У вас пока нет заказов</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'shop:order_list' %}" class="btn btn-primary">Все заказы</a>
+{% endblock %}

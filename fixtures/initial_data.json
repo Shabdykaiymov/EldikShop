@@ -1,0 +1,154 @@
+[
+  {
+    "model": "shop.category",
+    "pk": 1,
+    "fields": {
+      "name": "Электроника",
+      "slug": "electronics"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 2,
+    "fields": {
+      "name": "Одежда",
+      "slug": "clothing"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 3,
+    "fields": {
+      "name": "Книги",
+      "slug": "books"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 4,
+    "fields": {
+      "name": "Товары для дома",
+      "slug": "home-goods"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Смартфон XYZ",
+      "slug": "smartphone-xyz",
+      "image": "products/smartphone.jpg",
+      "description": "Современный смартфон с продвинутыми функциями и мощным процессором.",
+      "price": "25000.00",
+      "available": true,
+      "created": "2025-04-24T12:00:00.000Z",
+      "updated": "2025-04-24T12:00:00.000Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Ноутбук ABC",
+      "slug": "laptop-abc",
+      "image": "products/laptop.jpg",
+      "description": "Легкий и мощный ноутбук для работы и развлечений.",
+      "price": "65000.00",
+      "available": true,
+      "created": "2025-04-24T12:01:00.000Z",
+      "updated": "2025-04-24T12:01:00.000Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "category": 2,
+      "name": "Джинсы Classic",
+      "slug": "jeans-classic",
+      "image": "products/jeans.jpg",
+      "description": "Классические джинсы из прочного денима.",
+      "price": "3500.00",
+      "available": true,
+      "created": "2025-04-24T12:02:00.000Z",
+      "updated": "2025-04-24T12:02:00.000Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Футболка Cotton",
+      "slug": "tshirt-cotton",
+      "image": "products/tshirt.jpg",
+      "description": "Удобная хлопковая футболка.",
+      "price": "1200.00",
+      "available": true,
+      "created": "2025-04-24T12:03:00.000Z",
+      "updated": "2025-04-24T12:03:00.000Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+      "category": 3,
+      "name": "Мастер и Маргарита",
+      "slug": "master-i-margarita",
+      "image": "products/book1.jpg",
+      "description": "Знаменитый роман Михаила Булгакова.",
+      "price": "800.00",
+      "available": true,
+      "created": "2025-04-24T12:04:00.000Z",
+      "updated": "2025-04-24T12:04:00.000Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+      "category": 3,
+      "name": "Преступление и наказание",
+      "slug": "prestuplenie-i-nakazanie",
+      "image": "products/book2.jpg",
+      "description": "Классический роман Федора Достоевского.",
+      "price": "750.00",
+      "available": true,
+      "created": "2025-04-24T12:05:00.000Z",
+      "updated": "2025-04-24T12:05:00.000Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+      "category": 4,
+      "name": "Набор посуды",
+      "slug": "dinnerware-set",
+      "image": "products/dinnerware.jpg",
+      "description": "Комплект посуды для всей семьи.",
+      "price": "4500.00",
+      "available": true,
+      "created": "2025-04-24T12:06:00.000Z",
+      "updated": "2025-04-24T12:06:00.000Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+      "category": 4,
+      "name": "Постельное белье",
+      "slug": "bed-linen",
+      "image": "products/bed-linen.jpg",
+      "description": "Мягкое и комфортное постельное белье.",
+      "price": "2800.00",
+      "available": true,
+      "created": "2025-04-24T12:07:00.000Z",
+      "updated": "2025-04-24T12:07:00.000Z"
+    }
+  }
+]
